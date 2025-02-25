@@ -3,35 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadro de Palavras</title>
     <style>
-        .quadro {
+        body {
+            background-color: #f4f4f4;
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .frase {
-            width: 200px;
-            height: 100px;
-            background: lightgray;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            text-align: center;
-            border-radius: 8px;
-            transition: transform 0.3s, background 0.3s;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-        .frase:hover {
-            transform: scale(1.1);
-            background: rgb(173, 216, 230);
-            color: black;
+        .quadro {
+            position: relative;
+            width: 80vw;
+            height: 60vh;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .palavra {
+            position: absolute;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            transition: transform 0.3s, color 0.3s;
+        }
+        .palavra:hover {
+            transform: scale(1.3);
+            color: yellow;
         }
     </style>
 </head>
 <body>
-    <div class="quadro">
-        <div class="frase">"O sucesso é a soma de pequenos esforços diários."</div>
-        <div class="frase">"A persistência leva à perfeição."</div>
-        <div class="frase">"Aprender é crescer."</div>
+    <div class="quadro" id="quadro">
+        <!-- As palavras serão inseridas dinamicamente -->
     </div>
+
+    <script>
+        const palavras = ["DANÇA DOS FAMOSOS", "SEGUNDOU", "VIDAL", "LUVA", "BAHIA", "FANTÁSTICO", "FELIPÃO", "PORTUGAL", "LUCIANO", "ANA FURTADO"];
+        const quadro = document.getElementById("quadro");
+
+        palavras.forEach(palavra => {
+            let span = document.createElement("span");
+            span.classList.add("palavra");
+            span.textContent = palavra;
+
+            // Define posições aleatórias
+            let x = Math.random() * 70 + 10;
+            let y = Math.random() * 70 + 10;
+            span.style.left = `${x}%`;
+            span.style.top = `${y}%`;
+
+            quadro.appendChild(span);
+        });
+    </script>
 </body>
 </html>
+
