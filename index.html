@@ -45,7 +45,16 @@
     </div>
 
     <script>
-        const palavras = ["Sou uma boa mãe para o fênix","Sou socialista","Sou atualizada na engenharia", "Não sou de perder tempo assistindo youtube", "Sou leitora","Entendo muito sobre geologia", "Tenho boas notas","Sou uma pessoa diurna","Durmo bem e profundamente","Não tenho que passar nas matérias, eu consigo passar nelas", "Entendo muito sobre saneamento", "Entendo muito sobre mecânica dos solos", "Sou boa o suficiente", "Entendo muito sobre dinâmica","Sou ótima em trabalho em equipe", "Sou uma pesquisadora", "Sou boa com tecnologias"];
+        const palavras = [
+            "Sou uma boa mãe para o fênix","Sou socialista","Sou atualizada na engenharia", 
+            "Não sou de perder tempo assistindo youtube", "Sou leitora","Entendo muito sobre geologia", 
+            "Tenho boas notas","Sou uma pessoa diurna","Durmo bem e profundamente",
+            "Não tenho que passar nas matérias, eu consigo passar nelas", 
+            "Entendo muito sobre saneamento", "Entendo muito sobre mecânica dos solos", 
+            "Sou boa o suficiente", "Entendo muito sobre dinâmica","Sou ótima em trabalho em equipe", 
+            "Sou uma pesquisadora", "Sou boa com tecnologias"
+        ];
+
         const quadro = document.getElementById("quadro");
 
         palavras.forEach(palavra => {
@@ -53,9 +62,10 @@
             span.classList.add("palavra");
             span.textContent = palavra;
 
-            // Define posições aleatórias
-            let x = Math.random() * 70 + 10;
-            let y = Math.random() * 70 + 10;
+            // Ajuste das posições aleatórias (movendo para a esquerda)
+            let x = Math.random() * 50;  // Agora varia entre 0% e 50% (mais à esquerda)
+            let y = Math.random() * 70 + 10; // Mantém a distribuição vertical
+
             span.style.left = `${x}%`;
             span.style.top = `${y}%`;
 
